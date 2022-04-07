@@ -65,7 +65,7 @@ export default () => {
     }
 
     return (
-        <div style={styles.progressArr}>
+        <div style={styles.progressArr} className="progressBar">
             {stories.map((_, i) =>
                 <Progress
                     key={i}
