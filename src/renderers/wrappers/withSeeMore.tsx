@@ -6,7 +6,7 @@ const withSeeMore: React.FC<{
     story: Story,
     action: Action,
     customCollapsed?: SeeMoreProps["customCollapsed"]
-}> = ({ story, action, customCollapsed, children }) => {
+}> = ({ story, action, customCollapsed, children,ref }) => {
     const [showMore, setShowMore] = useState(false);
     const toggleMore = (show) => {
         action(show ? 'pause' : 'play');
@@ -17,6 +17,7 @@ const withSeeMore: React.FC<{
         {children}
         {story.seeMore && (
             <div
+                ref={ref}
                 style={{
                     position: "absolute",
                     margin: "auto",
