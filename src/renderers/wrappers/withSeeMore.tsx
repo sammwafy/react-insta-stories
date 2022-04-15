@@ -1,5 +1,5 @@
 import React, { ComponentType, useState } from 'react';
-import { Action, SeeMoreProps, Story } from '../../interfaces';
+import { Action, SeeMoreProps, Story,ref } from '../../interfaces';
 import SeeMore from "./../../components/SeeMore";
 
 const withSeeMore: React.FC<{
