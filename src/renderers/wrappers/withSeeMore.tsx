@@ -1,13 +1,12 @@
 import React, { ComponentType, useState } from 'react';
-import { Action, SeeMoreProps, Story,ref } from '../../interfaces';
+import { Action, SeeMoreProps, Story } from '../../interfaces';
 import SeeMore from "./../../components/SeeMore";
 
 const withSeeMore: React.FC<{
     story: Story,
     action: Action,
-    ref: SeeMoreProps["ref"],
     customCollapsed?: SeeMoreProps["customCollapsed"]
-}> = ({ story, action, customCollapsed, children,ref }) => {
+}> = ({ story, action, customCollapsed, children}) => {
     const [showMore, setShowMore] = useState(false);
     const toggleMore = (show) => {
         action(show ? 'pause' : 'play');
@@ -18,7 +17,6 @@ const withSeeMore: React.FC<{
         {children}
         {story.seeMore && (
             <div
-                ref={ref}
                 style={{
                     position: "absolute",
                     margin: "auto",
@@ -27,6 +25,7 @@ const withSeeMore: React.FC<{
                     width: "100%",
                     height: showMore ? '100%' : 'auto'
                 }}
+                className="seeMoreContainer"
             >
                 <CollapsedComponent
                     action={action}
