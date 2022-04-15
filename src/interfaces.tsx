@@ -113,6 +113,7 @@ export interface SeeMoreProps {
     seeMoreContent: Function;
     showContent: boolean;
     action: Action;
+    ref: Function;
     toggleMore: (show: boolean) => void;
     customCollapsed: React.ComponentType<{ toggleMore: (show: boolean) => void, action: Action }>
 }
