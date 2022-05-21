@@ -10,7 +10,8 @@ export default () => {
     const { currentId, next, videoDuration, pause } = useContext<ProgressContext>(ProgressCtx)
     const { defaultInterval, onStoryEnd, onStoryStart, onAllStoriesEnd } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
-
+    console.log(currentId)
+    console.log(count)
     useEffect(() => {
         setCount(0)
     }, [currentId, stories])
