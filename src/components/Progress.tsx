@@ -18,6 +18,7 @@ export default (props: ProgressProps) => {
                 return { width: 0 }
         }
     }
+    console.log(props)
 
     const { width, active } = props
     return (
