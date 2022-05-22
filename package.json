@@ -56,5 +56,7 @@
 		"react": "^16.8.2",
 		"react-router-dom": "^6.3.0"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"react-router-dom": "^6.3.0",
+	}
 }
