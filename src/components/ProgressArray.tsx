@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react'
-import { useSearchParams } from 'react-router-dom';
+import {useHistory} from "react-router-dom"
 import Progress from './Progress'
 import { ProgressContext, GlobalCtx, StoriesContext as StoriesContextInterface } from './../interfaces'
 import ProgressCtx from './../context/Progress'
@@ -8,13 +8,17 @@ import StoriesContext from './../context/Stories'
 
 export default () => {
     const [count, setCount] = useState<number>(0)
-    const [searchParams, setSearchParams] = useSearchParams();
+    const history = useHistory()
     const { currentId, next, videoDuration, pause } = useContext<ProgressContext>(ProgressCtx)
     const { defaultInterval, onStoryEnd, onStoryStart, onAllStoriesEnd } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
     
     useEffect(() => {
-     setSearchParams({"p": currentId}) 
+     history.push({
+    pathname: window.location.pathname,
+    search: `?p=${currentId}`
+})
+        
     },[currentId])
 
     useEffect(() => {
