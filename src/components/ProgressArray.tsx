@@ -15,7 +15,7 @@ export default () => {
     useEffect(() => {
 if ('URLSearchParams' in window) {
     let searchParams = new URLSearchParams(window.location.search)
-    searchParams.set("p", currentId);
+    searchParams.set("p", currentId.toString());
     let newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
     history.pushState(null, '', newRelativePathQuery);
 } 
