@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect, useRef } from 'react'
-import {useHistory} from "react-router-dom"
 import Progress from './Progress'
 import { ProgressContext, GlobalCtx, StoriesContext as StoriesContextInterface } from './../interfaces'
 import ProgressCtx from './../context/Progress'
@@ -14,11 +13,12 @@ export default () => {
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
     
     useEffect(() => {
-     history.push({
-    pathname: window.location.pathname,
-    search: `?p=${currentId}`
-})
-        
+if ('URLSearchParams' in window) {
+    let searchParams = new URLSearchParams(window.location.search)
+    searchParams.set("p", currentId);
+    let newRelativePathQuery = window.location.pathname + '?' + searchParams.toString();
+    history.pushState(null, '', newRelativePathQuery);
+} 
     },[currentId])
 
     useEffect(() => {
