@@ -7,7 +7,6 @@ import StoriesContext from './../context/Stories'
 
 export default () => {
     const [count, setCount] = useState<number>(0)
-    const history = useHistory()
     const { currentId, next, videoDuration, pause } = useContext<ProgressContext>(ProgressCtx)
     const { defaultInterval, onStoryEnd, onStoryStart, onAllStoriesEnd } = useContext<GlobalCtx>(GlobalContext);
     const { stories } = useContext<StoriesContextInterface>(StoriesContext);
